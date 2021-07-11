@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Gantt - 
+{% endblock title %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h1 class="text-center"><b>✔Gantt Chart✔</b></h1>
+        <a href="{% url 'index' %}" class="btn btn-dark">Back to list</a>
+    </div>
+    <h2 class="text-center"><b>Scroll right to check schedule</b></h2>
+    <div class="card-body">
+        <img src="{% static 'Project_gantt.svg' %}">
+            {% for task in tasks %}
+            <li class="list-group-item list-group-item-action">
+                <b>{{task.title}}</b>
+            </li>
+            {% endfor %}
+    </div>
+
+</div>
+{% endblock content %}
